@@ -1,0 +1,228 @@
+.dockmodal,
+.dockmodal *,
+.dockmodal *:before,
+.dockmodal *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.modal-placeholder {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+.dockmodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 55;
+  background: #000;
+  opacity: 0.7;
+  display: none;
+}
+.dockmodal {
+  position: fixed;
+  right: 50px;
+  bottom: 0;
+  top: auto;
+  z-index: 50;
+  background: transparent;
+  /*overflow: hidden;*/
+  border: 0;
+
+  transition: right 0.4s ease 0s, left 0.4s ease 0s, top 0.4s ease 0s, bottom 0.4s ease 0s, height 0.4s ease 0s, width 0.4s ease 0s;
+  width: 400px;
+  left: auto;
+  top: auto;
+  height:450px;
+
+  z-index:999;
+
+  box-shadow: 0 0 40px 0 rgba(0,0,0,.2),0 0 15px 0 rgba(0,0,0,.3);
+}
+.dockmodal-header {
+  height: 36px;
+  padding: 5px 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #667695;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 10;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.dockmodal-body {
+  background: #FFF;
+  position: absolute;
+  top: 36px;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  padding: 15px;
+  /*border-right:1px solid #ccc;
+  border-left:1px solid #ccc;*/
+}
+.dockmodal-footer {
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #CCC;
+  overflow: hidden;
+  text-align: right;
+}
+.dockmodal-footer-buttonset {
+  height: 30px;
+  line-height: 30px;
+}
+.dockmodal.no-footer .dockmodal-body {
+  bottom: 0;
+}
+.dockmodal-header .title-text {
+  color: #FFFFFF;
+  vertical-align: top;
+  white-space: nowrap;
+  max-width: 100%;
+  margin: 0px 50px 0 0;
+  /*padding:5px 0;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dockmodal-header .header-action {
+  padding: 5px;
+  float: right;
+  margin-right: 1px;
+  line-height: 16px;
+}
+/*.dockmodal-header .header-action:hover {
+  background: #474a5e;
+}*/
+.dockmodal-header .header-action i {
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+
+    font-family: "Font Awesome 5 Free";
+    font-size:65%;
+    font-weight: 600;
+    color:#fff;
+    font-style: normal;
+}
+.dockmodal-header .header-action .icon-close::before {
+    content:"\f00d";
+}
+.dockmodal-header .header-action .icon-popin::before {
+    content:"\f424"
+}
+.dockmodal-header .header-action .icon-popout::before {
+    content:"\f424"
+}
+.dockmodal.popped-out .header-action .icon-popout::before {
+    content:"\f422"
+}
+.dockmodal-header .header-action .icon-minimize::before {
+    content:"\f068"
+}
+.dockmodal-header .header-action .icon-restore::before {
+    content:"\f068"
+}
+.dockmodal.minimized .header-action .icon-minimize::before {
+    content:"\f067"
+}
+.dockmodal.popped-out {
+  border: 0;
+  z-index: 1501;
+  height: auto;
+  transition: right 0.4s ease 0s, left 0.4s ease 0s, top 0.4s ease 0s, bottom 0.4s ease 0s, height 0.4s ease 0s, width 0.4s ease 0s;
+  width: auto;
+  left: 6%;
+  right: 6%;
+  top: 6%;
+  bottom: 6%;
+}
+.dockmodal.minimized {
+  height: 36px;
+  top: auto;
+  left: auto;
+  right: 50px;
+  bottom: 0;
+  z-index: 50;
+  width: 250px;
+}
+.dockmodal .dockmodal-footer-buttonset > a {
+  min-width: 60px;
+}
+.dockmodal .dockmodal-footer-buttonset > a + a {
+  margin-left: 5px;
+}
+
+
+.holder-style {
+  display: block;
+  color: #AAA;
+  background-color: #f1f1f1;
+  outline: 2px dashed #d9d9d9!important;
+  border: 0;
+  -webkit-transition: all 0.15s ease;
+  -moz-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  padding: 15px !important;
+  margin-bottom: 20px !important;
+}
+.holder-style:hover,
+.holder-style:focus {
+  cursor: pointer;
+  color: #777;
+  background-color: #EEE;
+  outline: 2px dashed #aaa!important;
+  border: 0;
+  text-decoration: none;
+}
+.holder-style.holder-active {
+  background-color: #FFF;
+  outline-color: #70ca63;
+}
+.holder-style .holder-icon {
+  color: #AAA;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+.holder-style:hover .holder-icon,
+.holder-style:focus .holder-icon,
+.holder-style.holder-active .holder-icon {
+  color: #70ca63;
+}
+.dialog-content-block {
+	margin:0px;
+}
+.dialog-content-block li {
+	border-bottom:1px solid #eee;
+	margin-bottom:10px;
+}
+.dialog-content-block li:last-child {
+	border-bottom:none;
+}
+
+.dockmodal .vert {
+  -webkit-animation: vert 3s linear infinite;
+  animation: vert 3s linear infinite;
+}
+@-webkit-keyframes vert {
+  0% { color: rgba(40, 167, 69, 1); }
+  50% { color: rgba(40, 167, 69, 0); }
+  100% { color: rgba(40, 167, 69, 1); }
+}
+@keyframes vert {
+  0% { color: rgba(40, 167, 69, 1); }
+  50% { color: rgba(40, 167, 69, 0); }
+  100% { color: rgba(40, 167, 69, 1); }
+}

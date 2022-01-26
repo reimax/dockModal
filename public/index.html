@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dockModal</title>
+
+        <script>
+            var ready = (callback) => {
+                if (document.readyState != "loading") callback();
+                else document.addEventListener("DOMContentLoaded", callback);
+            }
+
+            ready(() => {
+                dockModal(document.querySelector(".dock_modal1"), {
+                    minimizedWidth: 240,
+                    class: 'dockmodal_test',
+                    height: 420,
+                    title: function() {
+                        return document.querySelector(".dock_modal1").getAttribute("data-title");
+                    },
+                    initialState: "minimized"
+                });
+
+                dockModal(document.querySelector(".dock_modal2"), {
+                    minimizedWidth: 240,
+                    class: 'dockmodal_test',
+                    height: 420,
+                    title: function() {
+                        return document.querySelector(".dock_modal2").getAttribute("data-title");
+                    },
+                    initialState: "docked"
+                });
+            });
+        </script>
+
+        <style>
+            body {
+                font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+                font-size: 1.1rem;
+                font-weight: 400;
+                color: #2c304d;
+                position: relative;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="dock_modal1" data-title="test_title 1">    
+           test content 1
+        </div>
+
+        <div class="dock_modal2" data-title="test_title 2">    
+           test content 2
+        </div>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
+        <script src="../src/js/dockModal.js"></script>
+        <link rel="stylesheet" href="../src/css/dockModal.css">
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic-ext&display=swap' rel='stylesheet'>
+    </body>
+</html>
