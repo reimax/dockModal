@@ -11,6 +11,9 @@ var dockModal = function () {
         class: "",
         animationSpeed: 400,
         initialState: 'modal', /* "modal", "docked", "minimized" */
+
+        minWidth: 150,
+        minGutter: 20,
     
         showPopout: true,
         showMinimize: true,
@@ -36,6 +39,12 @@ var dockModal = function () {
         if (typeof options.title == "function") {
             options.title = options.title.call(element);
         }
+
+        let windowWidth = window.innerWidth;
+        if(windowWidth <= 425) {
+            options.minimizedWidth = options.minWidth;
+            options.gutter = options.minGutter;
+        }
             
         // create modal
         let body = document.querySelector("body");
@@ -48,6 +57,8 @@ var dockModal = function () {
             minimizedWidth: options.minimizedWidth,
             gutter: options.gutter,
             animationSpeed: options.animationSpeed,
+            minWidth: options.minWidth,
+            minGutter: options.minGutter,
         });
         
         if (options.initialState == "modal") {
@@ -385,6 +396,11 @@ var dockModal = function () {
     
         document.querySelectorAll("."+main_class).forEach(function(element) {
             let options = element.dataset;
+
+            if(windowWidth <= 425) {
+                options.minimizedWidth = options.minWidth;
+                options.gutter = options.minGutter;
+            }
     
             if (element.classList.contains("popped-out") && !element.classList.contains("minimized")) {
                 return;
@@ -398,7 +414,15 @@ var dockModal = function () {
                 right += parseFloat(options.width);
             }
             if (right > windowWidth) {
-                element.style.display = "none";
+                if(!element.classList.contains("minimized")) {
+                    element.style.width = "auto";
+                    element.style.right = 0;
+                    element.style.left = 0;
+                } else {
+                    element.style.width = options.minimizedWidth + "px";
+                    element.style.right = "auto";
+                    element.style.left = "auto";
+                }
             } else {
                 setTimeout(function () {
                     element.style.display = "";
