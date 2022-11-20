@@ -2,6 +2,7 @@ MockModal.js
 A vanilla, lightweight (~8kb gzipped), configurable. Fork jquery.dialog.js but without the jQuery dependency.
 
 SETUP
+
 js
 ```js
 dockModal(document.querySelector(".dock_modal"), {
@@ -20,3 +21,6 @@ html
     test content
 </div>
 ```
+
+demo:
+https://reimax.github.io/dockModal/public/
