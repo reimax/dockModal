@@ -1,4 +1,4 @@
-MockModal.js
+DockModal.js
 A vanilla, lightweight (~8kb gzipped), configurable. Fork jquery.dialog.js but without the jQuery dependency.
 
 SETUP
