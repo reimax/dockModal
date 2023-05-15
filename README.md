@@ -22,5 +22,20 @@ html
 </div>
 ```
 
+callback function:
+```php
+beforeCreate: undefined,
+create: undefined,
+open: undefined,
+beforeClose: undefined,
+close: undefined,
+beforeMinimize: undefined,
+minimize: undefined,
+beforeRestore: undefined,
+restore: undefined,
+beforePopout: undefined,
+popout: undefined
+```
+
 demo:
 https://reimax.github.io/dockModal/public/
